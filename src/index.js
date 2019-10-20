@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+//import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+//ReactDOM.render(<App />, document.getElementById('root'));
 class StopClock extends React.Component {
     constructor(props) {
       super(props);
@@ -27,14 +27,13 @@ class StopClock extends React.Component {
       
   
     }
-    //this take away the old time
     stopClock() {
       clearInterval(this.timerTime);
     }
     tick() {
       //to set the new state
       this.setState({
-        time: this.state.time + 1
+        time:  Date.now() - this.state.time
       });
     }
     startTimer = () => {
@@ -42,7 +41,7 @@ class StopClock extends React.Component {
         on: true,
         // time: this.state.time,
         // start: this.state.time
-        //start: Date.now() - this.state.time
+        start: Date.now() - this.state.time
       });
       this.startClock()
     };
@@ -60,7 +59,7 @@ class StopClock extends React.Component {
       return (
         <div>
           <h1>Hello this is a stopClock</h1>
-          <h1>{this.state.time}</h1>
+          <h1>{this.state.time.toString()}</h1>
           {this.state.on
             ? <button onClick={this.stopTimer}>Stop</button>
             : <button onClick={this.startTimer}>Start</button>
