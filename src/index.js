@@ -3,8 +3,9 @@ import ReactDOM from 'react-dom';
 import './index.css';
 //import App from './App';
 import * as serviceWorker from './serviceWorker';
+import ms from 'pretty-ms';
 
-//ReactDOM.render(<App />, document.getElementById('root'));
+
 class StopClock extends React.Component {
     constructor(props) {
         super(props);
@@ -20,28 +21,26 @@ class StopClock extends React.Component {
     startTimer = () => {
         this.setState({
             on: true,
-            //time: this.state.time,
+            // time: this.state.time,
             // start: this.state.time
-            //start: Date.now() - this.state.time
         });
         this.startClock()
     };
-    tick() {
-        //to set the new state
-        this.setState({
-            time: Date.now() - this.state.time
-        });
-    }
     startClock() {
 
+        this.setState({
+            start: Date.now() - this.state.time
+        });
         this.timerTime = setInterval(
-            () => this.tick(),
-            10
-        );
-        console.log("run");
-
-
+            () => {
+                this.setState({
+                    time: Date.now() - this.state.start,
+                })
+            }, 1
+        )
     }
+
+
     stopTimer = () => {
         this.setState({
             on: false,
@@ -50,13 +49,14 @@ class StopClock extends React.Component {
         this.stopClock();
     };
     stopClock() {
+        this.setState({on: false});
         clearInterval(this.timerTime);
     }
     resetTimer = () => {
-        this.setState({ 
-            isOn: false,
+        this.setState({
+            on: false,
             time: 0,
-            start:0
+            start: 0
         });
         this.stopTimer();
 
@@ -65,7 +65,7 @@ class StopClock extends React.Component {
         return (
             <div>
                 <h1>Hello this is a stopClock</h1>
-                <h1>{this.state.time}</h1>
+                <h1>{ms(this.state.time)}</h1>
                 {this.state.on
                     ? <button onClick={this.stopTimer}>Stop</button>
                     : <button onClick={this.startTimer}>Start</button>
