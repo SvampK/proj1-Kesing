@@ -2,10 +2,6 @@ body {
   background: url(astronomy-atmosphere-earth-220201.jpg);
   font-family: 'Orbitron', sans-serif;
   color: #f4c900;
-  /* display: flex;
-  justify-content: center;
-  align-items: center;
-   */
   display: grid;
   height: 100%;
 }
@@ -15,9 +11,9 @@ body {
   height: 300px;
   margin: auto;
 }
-    .btnGroup{
+.btnGroup{
       margin:100px;
-    }
+}
 .mainbtn{
   width:100px;
   color:#fff;
