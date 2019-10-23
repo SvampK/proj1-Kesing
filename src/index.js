@@ -46,12 +46,10 @@ class StopClock extends React.Component {
             on: false,
             // time: this.state.time
         });
-        this.stopClock();
-    };
-    stopClock() {
-        this.setState({on: false});
         clearInterval(this.timerTime);
-    }
+
+    };
+
     resetTimer = () => {
         this.setState({
             on: false,
@@ -63,16 +61,18 @@ class StopClock extends React.Component {
     };
     render() {
         return (
-            <div>
-                <h1>Hello this is a stopClock</h1>
-                <h1>{ms(this.state.time)}</h1>
-                {this.state.on
-                    ? <button onClick={this.stopTimer}>Stop</button>
-                    : <button onClick={this.startTimer}>Start</button>
+            <div className="container">
+                <h1 id="title">Welcome to the earth time!</h1>
+                <h1 id="time"> {ms(this.state.time)}</h1>
+                <h2 id="msg">on the earth has passed.</h2>
+                <div className="btnGroup">
+                    {this.state.on
+                        ? <button className="mainbtn" onClick={this.stopTimer}>Stop</button>
+                        : <button className="mainbtn" onClick={this.startTimer}>Start</button>
 
-                }
-                <button onClick={this.resetTimer}>Reset</button>
-                {/* <button onClick=()>{this.state.timeOn ? "Stop":"Start"}</button> */}
+                    }
+                    <button className="mainbtn" onClick={this.resetTimer}>Reset</button>
+                </div>
 
             </div>
         )
