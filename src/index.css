@@ -1,13 +1,38 @@
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  background: url(astronomy-atmosphere-earth-220201.jpg);
+  font-family: 'Orbitron', sans-serif;
+  color: #f4c900;
+  /* display: flex;
+  justify-content: center;
+  align-items: center;
+   */
+  display: grid;
+  height: 100%;
 }
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+.container{
+  text-align: center;
+  width: 600px;
+  height: 300px;
+  margin: auto;
+}
+    .btnGroup{
+      margin:100px;
+    }
+.mainbtn{
+  width:100px;
+  color:#fff;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-size: 16px;
+  background:#510a83;
+  border-radius: 5px;
+  display: inline-block;
+  border: none;
+  margin: 10px;
+  padding: 10px;
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+}
+.mainbtn:hover {
+  background-color: gray;
 }
